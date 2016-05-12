@@ -1,0 +1,29 @@
+@media screen and (max-width: 400px) {
+	html body div#header{
+		width: 100%;
+		position: relative;
+		top: 0px;
+		left: 0px;
+	}
+
+	html #menushow{
+		display: block;
+	}
+	
+	#mainmenu{
+		display:none;
+	}
+	
+	html #logo span{
+		display:none;
+	}
+	
+	html div#middle{
+		width:95%;
+		left: 0;
+	}
+	
+	html body div#mainmenu a{
+		font-size: 15px;
+	}
+}

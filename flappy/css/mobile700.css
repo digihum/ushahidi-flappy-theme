@@ -1,0 +1,126 @@
+@media screen and (max-width: 700px) {
+	html div#mainmenu a, 
+	html div#mainmenu strong{
+		font-size:75%;
+	}
+	
+	html .infowindow .infowindow_content,
+	html .infowindow .infowindow_content a{
+		width: 100%;
+		font-size: 10px;
+	}
+	
+	html #reports-box{
+		width: 100%;
+	}
+	
+	.rb_nav-controls table{
+		text-align:center;
+		width: 100%;
+	}
+	
+	.rb_nav-controls table td{
+		width: 100%;
+		display: block;
+		border:none;
+	}
+	
+	#rb_map-view{
+		width: 100%;
+	}
+	
+	html #filters-box {
+		float: left;
+		width: 100%;
+		margin-left: 0px;
+	}
+	
+	html .half-width{
+		width:100%;
+	}
+	
+	html .big-block{
+		padding: 0px;
+	}
+	
+	html .step-1,
+	html .step-2,
+	html .step-3{
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	html .step-1 .map-wrapper p{
+		padding: 6px 0px;
+		width: 100%;
+	}
+	
+	html .step-1 .map-wrapper,
+	html .step-1 .map-wrapper .map-holder{
+		width: 100%;
+	}
+	
+	html .step-2-holder{
+		width: 100%;
+	}
+	
+	html .step-2 .box input[type=text]{
+		margin: 0px;
+		width: 50%;
+	}
+	
+	html .report_category ul{
+		width: 100%;
+	}
+	
+	.rb_nav-controls table td.last{
+		text-align: left;
+	}
+	
+	html .rb_nav-controls{
+		height: auto;
+	}
+	
+	html div#header{
+		position:absolute;
+		height:inherit;
+	}
+	
+	html .ui-widget-header li.ui-state-default{
+		width:45%;
+		margin: 2.5%;
+		font-size: 12px;
+	}
+	
+	html .ui-tabs .ui-tabs-nav li a{
+		padding: 2px;
+	}
+	
+	html div.language-box select{
+		font-size: 10px;
+		width: 60px;
+	}
+	
+	html a.btn:hover{
+		color:#fff;
+	}
+	
+	#showsubmit{
+		text-align:center;
+		width:100%;
+	}
+	
+	html #main .left-col{
+		width: 100%;
+	}
+	
+	html #main .right-col{
+		width: 100%;
+	}
+	
+	html .right-col #report-map .map-holder{
+		width: 100%;
+	}
+	
+}
