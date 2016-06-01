@@ -1,8 +1,19 @@
 	<div id="main">
 	<div id="content">
 		<div class="content-bg">
-
-			<?php if ($site_submit_report_message != ''): ?>
+			<script>
+				jQuery(document).ready(
+					function(){
+						jQuery("input")
+							.on("keypress" , function(event){
+									if (event.keyCode === 10 || event.keyCode === 13) 
+										event.preventDefault();
+								}
+							);
+					}
+				);	
+			</script>
+<?php if ($site_submit_report_message != ''): ?>
 				<div class="green-box">
 					<h3><?php echo $site_submit_report_message; ?></h3>
 				</div>
@@ -67,9 +78,9 @@
 				<div class="report_row" id="datetime_default">
 					<h4>
 						<a href="#" id="date_toggle" class="show-more"><?php echo Kohana::lang('ui_main.modify_date'); ?></a>
-						<?php echo Kohana::lang('ui_main.date_time'); ?>: 
-						<?php echo Kohana::lang('ui_main.today_at')." "."<span id='current_time'>".$form['incident_hour']
-							.":".$form['incident_minute']." ".$form['incident_ampm']."</span>"; ?>
+						<?PHP
+							$block->block("date_time");
+						?>
 						<span class="required">*</span>
 						<?php if($site_timezone): ?>
 							<small>(<?php echo $site_timezone; ?>)</small>
@@ -79,7 +90,7 @@
 						$block->block("form_required");
 					?>
 				</div>
-				<div class="report_row hide" id="datetime_edit">
+				<div class="report_row" id="datetime_edit">
 					<div class="date-box">
 						<h4><?php echo Kohana::lang('ui_main.reports_date'); ?></h4>
 						<?php print form::input('incident_date', $form['incident_date'], ' class="text short"'); ?>
