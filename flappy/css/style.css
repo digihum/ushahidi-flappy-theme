@@ -2405,3 +2405,7 @@ p,a,dd,tt,label,dl{
 .ui-slider-tooltip{
 	color: #fff;
 }
+
+.thanks_msg a{
+	color: #000;
+}
