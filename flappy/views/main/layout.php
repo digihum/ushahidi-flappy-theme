@@ -33,8 +33,9 @@ $(document).ready(
 				<ul>
 					<li><a href="#tabs-1">Welcome</a></li>
 					<li><a href="#tabs-2">Map</a></li>
-					<li><a href="#tabs-3">Pictures</a></li>
-					<li><a href="#tabs-4">Small Maps</a></li>
+					<li><a href="#tabs-3">Timeline</a></li>
+					<li><a href="#tabs-4">Pictures</a></li>
+					<li><a href="#tabs-5">Small Maps</a></li>
 				</ul>
 				<div id="tabs-1">
 					<div id="welcomeblock">
@@ -216,11 +217,18 @@ $(document).ready(
 				<div id="tabs-3">
 					<?php
 					// Map and Timeline Blocks
-						$block = new popularincidents();
+						$block = new timeline();
 						$block->block();
 					?>
 				</div>
 				<div id="tabs-4">
+					<?php
+					// Map and Timeline Blocks
+						$block = new popularincidents();
+						$block->block();
+					?>
+				</div>
+				<div id="tabs-5">
 					<?php
 					// Map and Timeline Blocks
 						$block = new thumbmaps();
