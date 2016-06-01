@@ -32,7 +32,7 @@ var endTime = <?php echo $active_endDate ?>;
 var intervalTime = ''; // HT: manual time interval
 
 // To hold the Ushahidi.Map reference
-var map = null;
+var main_map = null;
 
 
 /**
@@ -229,13 +229,13 @@ jQuery(function() {
 		reportFilters: {
 			s: startTime,
 			e: endTime
-		}
+		}	
 
 	};
 
 	// Initialize the map
-	map = new Ushahidi.Map('map', config);
-	map.addLayer(Ushahidi.GEOJSON, {
+	main_map = new Ushahidi.Map('main_map', config);
+	main_map.addLayer(Ushahidi.GEOJSON, {
 		name: "<?php echo Kohana::lang('ui_main.reports'); ?>",
 		url: reportsURL,
 		transform: false
@@ -243,7 +243,7 @@ jQuery(function() {
 
 
 	// Register the referesh timeline function as a callback
-	map.register("filterschanged", refreshTimeline);
+	main_map.register("filterschanged", refreshTimeline);
 	setTimeout(function() { refreshTimeline({
 		s: startTime,
 		e: endTime
@@ -270,7 +270,7 @@ jQuery(function() {
 		$(this).parents("div").show();
 		
 		// Update report filters
-		map.updateReportFilters({c: categoryId});
+		main_map.updateReportFilters({c: categoryId});
 
 		e.stopPropagation();
 		return false;
@@ -290,7 +290,7 @@ jQuery(function() {
 				if (this.id == context.id) {
 					isCurrentLayer = true;
 				}
-				map.trigger("deletelayer", $(".layer-name", this).html());
+				main_map.trigger("deletelayer", $(".layer-name", this).html());
 				$(this).removeClass("active");
 			}
 		});
@@ -299,7 +299,7 @@ jQuery(function() {
 		if (!isCurrentLayer) {
 			// Set the currently selected layer as the active one
 			$(this).addClass("active");
-			map.addLayer(Ushahidi.KML, {
+			main_map.addLayer(Ushahidi.KML, {
 				name: $(".layer-name", this).html(),
 				url: "json/layer/" + layerId
 			});
@@ -324,7 +324,7 @@ jQuery(function() {
 					startTime = from;
 					endTime = to;
 					intervalTime = intrvl; // HT: manual time interval
-					map.updateReportFilters({s: from, e: to, i: intrvl}); // HT: manual time interval
+					main_map.updateReportFilters({s: from, e: to, i: intrvl}); // HT: manual time interval
 					// map.updateReportFilters({s: from, e: to});
 				}
 
@@ -346,17 +346,17 @@ jQuery(function() {
 		$(this).addClass('active');
 
 		// Update the report filters
-		map.updateReportFilters({m: mediaType});
+		main_map.updateReportFilters({m: mediaType});
 		
 		return false;
-	});
+	});	
 	
 	//Execute the function when page loads
-	smartColumns();
+	//smartColumns();
 
 });
 
 $(window).resize(function () { 
 	//Each time the viewport is adjusted/resized, execute the function
-	smartColumns();
+	//smartColumns();
 });
