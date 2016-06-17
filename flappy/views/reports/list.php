@@ -72,7 +72,9 @@
 					$comment_count = ORM::Factory('comment')->where('incident_id', $incident_id)->count_all();
 
 					$incident_thumb = url::file_loc('img')."media/img/report-thumb-default.jpg";
+					
 					$media = ORM::Factory('media')->where('incident_id', $incident_id)->find_all();
+					
 					if ($media->count())
 					{
 						foreach ($media as $photo)
@@ -81,9 +83,23 @@
 							{ // Get the first thumb
 								$incident_thumb = url::convert_uploaded_to_abs($photo->media_thumb);
 								break;
+							}else{
+								$block = new thumbmaps();		
+								ob_start();
+								$block->block($incident_id);
+								$url = ob_get_clean();
+								$incident_thumb = $url;
 							}
+
 						}
+					}else{
+						$block = new thumbmaps();		
+						ob_start();
+						$block->block($incident_id);
+						$url = ob_get_clean();
+						$incident_thumb = $url;
 					}
+					
 				?>
 				<div id="incident_<?php echo $incident_id ?>" class="rb_report <?php echo $incident_verified_class; ?>">
 					<div class="r_media">
